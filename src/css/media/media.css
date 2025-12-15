@@ -1,0 +1,378 @@
+@media(min-width: 768px) {
+
+    /* Start Basics */
+    section {
+        padding: var(--section-md-padding);
+    }
+
+    /* End Basics */
+
+    /* Start Header Section */
+    .header {
+        padding: 1rem 2rem;
+    }
+
+    /* End Header Section */
+
+    /* Start Banner Section */
+    .banner .banner-container {
+        max-width: 52%;
+    }
+
+    .banner .fact-list {
+        gap: 3rem;
+    }
+
+    /* End Banner Section */
+
+    /* Start Product Section */
+    .product .product-container {
+        flex-direction: row-reverse;
+        gap: 3rem;
+    }
+
+    .product .product-gallery {
+        flex: 1;
+        min-width: 300px;
+    }
+
+    .product .product-details {
+        flex: 1;
+    }
+
+    .product .gallery-thumbnails {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .product .included-boxes {
+        flex-direction: row;
+    }
+
+    .product .fragrance-options {
+        flex-wrap: wrap;
+    }
+
+    /* End Product Section */
+
+    /* Start Collection Section */
+    .collection .collection-container {
+        gap: 4rem;
+        align-items: center;
+    }
+
+    .collection .collection-content,
+    .collection .collection-img {
+        flex: 1 1 0;
+        min-width: auto;
+    }
+
+    .collection .collection-img {
+        display: flex;
+        border-radius: 30px;
+    }
+
+    .collection .collection-img img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 30px;
+        object-fit: contain;
+    }
+
+    /* End Collection Section */
+
+    /* Start Fact Section */
+    .fact .fact-container {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .fact .fact-item {
+        width: 20%;
+    }
+
+    /* End Fact Section */
+
+    /* Start Footer Section */
+    .footer {
+        padding: var(--section-md-padding);
+    }
+
+    .footer .footer-list {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .footer .footer-list ul li {
+        width: auto;
+    }
+
+    /* End Footer Section */
+
+}
+
+@media(min-width: 1024px) {
+
+    /* Start Basics */
+    p,
+    span,ul li {
+        font-size: 16px;
+    }
+
+    h2 {
+        font-size: 36px;
+    }
+
+    /* End Basics */
+
+    /* Start Header Section */
+    .header .hamburger {
+        display: none;
+    }
+
+    .header .nav {
+        flex-direction: row;
+        justify-content: space-between;
+        position: relative;
+        top: 0;
+        background: transparent;
+        max-height: none;
+        transition: none;
+        overflow: visible;
+    }
+
+
+    .header .nav-list {
+        flex-direction: row;
+        align-items: center;
+        gap: 2rem;
+        width: auto;
+        margin: 0 auto;
+    }
+
+    .header .nav-list li {
+        width: auto;
+        border-bottom: none;
+        padding: 0;
+    }
+
+    .header .nav-list a {
+        padding: 0;
+        border-bottom: none;
+    }
+
+    .header .dropdown-menu {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 8px;
+        backdrop-filter: blur(10px);
+        min-width: 180px;
+        top: 100%;
+        left: 0;
+        max-height: 300px;
+        padding: 0.5rem 0 !important;
+    }
+
+    .header .dropdown-menu li {
+        border-bottom: 1px solid #eee;
+    }
+
+    .header .dropdown-menu li:last-child {
+        border-bottom: none;
+    }
+
+    .header .dropdown-menu a {
+        padding: 0.75rem 1.5rem !important;
+    }
+
+    .header .dropdown.active .dropdown-menu {
+        margin-top: 1rem;
+    }
+.header .dropdown.active .dropdown-toggle {
+    padding: 0;
+}
+
+    .header .header-btn {
+        padding: 0;
+    }
+
+    /* End Header Section */
+
+    /* Start Banner Section */
+    .banner .banner-container h1 {
+        font-size: 56px;
+    }
+
+    /* End Banner Section */
+
+    /* Start Product Section */
+    .product .product-container {
+        gap: 4rem;
+    }
+
+    .product .fragrance-img {
+        padding: 1.6rem;
+    }
+
+    .product .thumbnail img {
+        height: 90px;
+    }
+
+    /* End Product Section */
+
+    /* Start Collection Section */
+    .collection .collection-item {
+        padding: 1.5rem;
+    }
+
+    .collection .collection-item .ques h3 {
+        font-size: 20px;
+    }
+
+    .collection .collection-item.active .ans {
+        padding-top: 1.5rem;
+    }
+
+    /* End Collection Section */
+
+    /* Start Fact Section */
+    .fact .fact-item span {
+        font-size: 14px;
+    }
+
+    /* End Fact Section */
+
+    /* Start Footer Section */
+
+
+    .footer .footer-container {
+        flex-flow: wrap;
+        justify-content: space-between;
+    }
+.footer .logo{
+    width: 100%;
+}
+    .footer .footer-list {
+        width: 45%;
+    }
+
+    .footer .footer-content {
+        width: 38%;
+    }
+
+    /* End Footer Section */
+
+}
+
+@media(min-width: 1366px) {
+
+    /* Start Basics */
+    section {
+        padding: var(--section-xl-padding);
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* End Basics */
+
+    /* Start Banner Section */
+
+    .banner .fact-item h4 {
+        font-size: 72px;
+        line-height: 1;
+    }
+
+    .banner .fact-item span {
+        font-size: 22px;
+    }
+
+    /* End Banner Section */
+
+    /* Start Product Section */
+    .product .product-container {
+        gap: 7rem;
+    }
+
+    .product .thumbnail img {
+        height: 130px;
+    }
+
+    .product .subscription-content {
+        padding: 1rem 3rem 1.5rem;
+    }
+
+    .product .radio-text {
+        font-size: 20px;
+    }
+
+    .product .radio-price {
+        font-size: 20px;
+    }
+
+    .product .strike {
+        font-size: 20px;
+    }
+
+    /* End Product Section */
+
+    /* Start Collection Section */
+    .collection .collection-container {
+        gap: 7rem;
+    }
+
+    /* End Collection Section */
+
+    /* Start Fact Section */
+
+    .fact {
+        padding: 4rem 0;
+    }
+
+    .fact .fact-container {
+        width: 86%;
+        margin: 0 auto;
+    }
+
+    .fact .fact-item h4 {
+        font-size: 40px;
+    }
+
+    .fact .fact-item span {
+        font-size: 16px;
+    }
+
+    /* End Fact Section */
+
+    /* Start Choice Section */
+    .choice .choice-container {
+        width: 950px;
+        margin: 0 auto;
+    }
+
+    /* End Choice Section */
+
+    /* Start Footer Section */
+    .footer {
+       padding: 4.6rem 0 5.8rem;
+    }
+
+    /* End Footer Section */
+
+}
+
+@media (min-width: 1440px) {
+
+    /* Start Basics */
+    .container {
+        max-width: 1328px;
+    }
+
+    /* End Basics */
+
+}
