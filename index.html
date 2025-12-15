@@ -90,109 +90,104 @@
     <!-- End Banner Section -->
 
     <!-- Start Product Section -->
-    <section class="product">
-        <div class="container">
-            <div class="product-container">
-                <div class="product-details">
-                    <h2>GTG Perfumes</h2>
-                    <div class="product-rating">
-                        <div class="stars">★★★★★</div>
-                        <span class="rating-text">(7 million+ reviews)</span>
-                    </div>
-                    <p>
-                        Experience the timeless allure backed by modern artistry, captured in every bottle of our
-                        fragrance. Crafted for those who seek to elevate their essence with purpose and sophistication.
-                    </p>
-
-                    <div class="purchase-options-wrapper">
-                        <!-- Most Popular Header -->
-
-
-                        <!-- Single Subscription Card -->
-                        <div class="subscription-card" data-type="single">
-                            <div class="purchase-header">
-                                <h3 class="option-title">Most Popular</h3>
-                            </div>
-                            <div class="subscription-header">
-                                <label class="radio-option">
-                                    <input type="radio" name="purchaseType" value="single" data-type="single">
-                                    <span class="radio-label">
-                                        <span class="radio-text">Single Subscription</span>
-                                        <span class="radio-price">$99.99 <span class="strike">$146</span></span>
-                                    </span>
-                                </label>
-                            </div>
-                            <div class="subscription-content single-content">
-                                <div class="fragrance-group">
-                                    <h4>Choose a Fragrance</h4>
-                                    <div class="fragrance-options" id="singleFragrances"></div>
-                                </div>
-                                <div class="whats-included-box">
-                                    <h5>What's Included:</h5>
-                                    <div class="included-boxes" id="singleIncluded"></div>
-                                    <ul class="benefits-list" id="singleBenefits"></ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Double Subscription Card -->
-                        <div class="subscription-card" data-type="double">
-                            <div class="subscription-header">
-                                <label class="radio-option">
-                                    <input type="radio" name="purchaseType" value="double" data-type="double" checked>
-                                    <span class="radio-label">
-                                        <span class="radio-text">Double Subscription</span>
-                                        <span class="radio-price">$169.99 <span class="strike">$146</span></span>
-                                    </span>
-                                </label>
-                            </div>
-                            <div class="subscription-content double-content">
-                                <div class="fragrance-group">
-                                    <h4>Choose Fragrance 1</h4>
-                                    <div class="fragrance-options" id="doubleFragrances1"></div>
-                                </div>
-                                <div class="fragrance-group">
-                                    <h4>Choose Fragrance 2</h4>
-                                    <div class="fragrance-options" id="doubleFragrances2"></div>
-                                </div>
-                                <div class="whats-included-box">
-                                    <h5>What's Included:</h5>
-                                    <div class="included-boxes" id="doubleIncluded"></div>
-                                    <ul class="benefits-list" id="doubleBenefits"></ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="primary-btn btn">
-                        <a href="#" id="addToCartBtn" class="add-to-cart-btn">Add To Cart</a>
+ <section class="product">
+    <div class="container">
+        <div class="product-container">
+            <div class="product-details">
+                <h2>GTG Perfumes</h2>
+                <div class="product-rating">
+                    <div class="stars">★★★★★</div>
+                    <span class="rating-text">(7 million+ reviews)</span>
                 </div>
-                <div class="product-gallery">
-                    <div class="gallery-container">
-                        <div class="gallery-main">
-                            <img id="mainImage" src="./src/assets/img/GTG-Original.png" alt="GTG - Original"
-                                class="main-image" loading="lazy">
+                <p>
+                    Experience the timeless allure backed by modern artistry, captured in every bottle of our
+                    fragrance. Crafted for those who seek to elevate their essence with purpose and sophistication.
+                </p>
 
+                <div class="purchase-options-wrapper">
+                    <!-- Single Subscription Card -->
+                    <div class="subscription-card" data-type="single">
+                        <div class="purchase-header">
+                            <h3 class="option-title">Most Popular</h3>
                         </div>
-                        <div class="gallery-controls">
-                            <button class="gallery-arrow gallery-prev" aria-label="Previous image">
-                                <img src="./src/assets/img/gallery-arrow.svg" alt="gallery-arrow" loading="lazy">
-
-                            </button>
-                            <div class="gallery-dots" id="galleryDots"></div>
-                            <button class="gallery-arrow gallery-next" aria-label="Next image">
-                                <img src="./src/assets/img/gallery-arrow.svg" alt="gallery-arrow" loading="lazy">
-                            </button>
+                        <div class="subscription-header">
+                            <label class="radio-option">
+                                <input type="radio" name="purchaseType" value="single" data-type="single" checked>
+                                <span class="radio-label">
+                                    <span class="radio-text">Single Subscription</span>
+                                    <span class="radio-price">$99.99 <span class="strike">$146</span></span>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="subscription-content single-content">
+                            <div class="fragrance-group">
+                                <h4>Choose a Fragrance</h4>
+                                <div class="fragrance-options" id="singleFragrances"></div>
+                            </div>
+                            <div class="whats-included-box">
+                                <h5>What's Included:</h5>
+                                <div class="included-boxes" id="singleIncluded"></div>
+                                <ul class="benefits-list" id="singleBenefits"></ul>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="gallery-thumbnails" id="galleryThumbnails"></div>
+                    <!-- Double Subscription Card -->
+                    <div class="subscription-card" data-type="double">
+                        <div class="subscription-header">
+                            <label class="radio-option">
+                                <input type="radio" name="purchaseType" value="double" data-type="double">
+                                <span class="radio-label">
+                                    <span class="radio-text">Double Subscription</span>
+                                    <span class="radio-price">$169.99 <span class="strike">$146</span></span>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="subscription-content double-content">
+                            <div class="fragrance-group">
+                                <h4>Choose Fragrance 1</h4>
+                                <div class="fragrance-options" id="doubleFragrances1"></div>
+                            </div>
+                            <div class="fragrance-group">
+                                <h4>Choose Fragrance 2</h4>
+                                <div class="fragrance-options" id="doubleFragrances2"></div>
+                            </div>
+                            <div class="whats-included-box">
+                                <h5>What's Included:</h5>
+                                <div class="included-boxes" id="doubleIncluded"></div>
+                                <ul class="benefits-list" id="doubleBenefits"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Add to Cart Button - FIXED STRUCTURE -->
+                <a href="#" id="addToCartBtn" class="primary-btn btn add-to-cart-btn">Add To Cart</a>
+            </div>
+            
+            <!-- Product Gallery Section -->
+            <div class="product-gallery">
+                <div class="gallery-container">
+                    <div class="gallery-main">
+                        <img id="mainImage" src="./src/assets/img/GTG-Original.png" alt="GTG - Original"
+                            class="main-image" loading="lazy">
+                    </div>
+                    <div class="gallery-controls">
+                        <button class="gallery-arrow gallery-prev" aria-label="Previous image">
+                            <img src="./src/assets/img/gallery-arrow.svg" alt="gallery-arrow" loading="lazy">
+                        </button>
+                        <div class="gallery-dots" id="galleryDots"></div>
+                        <button class="gallery-arrow gallery-next" aria-label="Next image">
+                            <img src="./src/assets/img/gallery-arrow.svg" alt="gallery-arrow" loading="lazy">
+                        </button>
+                    </div>
                 </div>
 
-
+                <div class="gallery-thumbnails" id="galleryThumbnails"></div>
             </div>
         </div>
-        </div>
-    </section>
+    </div>
+</section>
     <!-- End Product Section -->
 
     <!-- Start Collectinon Section -->

@@ -1,4 +1,4 @@
-//Start Header Section Script
+// Start Header Section Script
 const hamburger = document.querySelector('.hamburger');
 const nav = document.querySelector('.nav');
 const header = document.querySelector('header');
@@ -10,7 +10,6 @@ if(hamburger) {
         nav.classList.toggle('active');
     });
 }
-
 
 window.addEventListener("scroll", function () {
   const scrollTop = window.scrollY;
@@ -24,7 +23,6 @@ window.addEventListener("scroll", function () {
     header.classList.add("sticky-down");
   }
 });
-
 
 const navLinks = document.querySelectorAll('.nav-list a:not(.dropdown-toggle)');
 navLinks.forEach(link => {
@@ -67,7 +65,6 @@ document.querySelectorAll(".collection-item .ques").forEach(ques => {
     }
   });
 });
-
 // End Collection Section Script
 
 // Start Choice Section Script
@@ -173,20 +170,31 @@ const purchaseTypes = {
 };
 
 let currentImageIndex = 0;
+
 function initProductSection() {
     if (!document.querySelector('.product')) return;
     
     initGallery();
-    initSubscriptionCards();
     initFragranceSelections();
+    initSubscriptionCards();
     initRadioListeners();
-    updateAddToCartLink();
+    // Call updateAddToCartLink after a short delay to ensure all elements are created
+    setTimeout(() => {
+        updateAddToCartLink();
+    }, 100);
 }
 
+// FIXED: Gallery now fully functional
 function initGallery() {
     const mainImage = document.getElementById('mainImage');
     const galleryDots = document.getElementById('galleryDots');
     const galleryThumbnails = document.getElementById('galleryThumbnails');
+
+    if (!mainImage || !galleryDots || !galleryThumbnails) return;
+
+    // Clear existing content
+    galleryDots.innerHTML = '';
+    galleryThumbnails.innerHTML = '';
 
     // Create dots
     galleryImages.forEach((img, index) => {
@@ -210,31 +218,43 @@ function initGallery() {
     });
 
     // Arrow buttons
-    document.querySelector('.gallery-prev').addEventListener('click', () => {
-        goToImage((currentImageIndex - 1 + galleryImages.length) % galleryImages.length);
-    });
+    const prevBtn = document.querySelector('.gallery-prev');
+    const nextBtn = document.querySelector('.gallery-next');
+    
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            goToImage((currentImageIndex - 1 + galleryImages.length) % galleryImages.length);
+        });
+    }
 
-    document.querySelector('.gallery-next').addEventListener('click', () => {
-        goToImage((currentImageIndex + 1) % galleryImages.length);
-    });
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            goToImage((currentImageIndex + 1) % galleryImages.length);
+        });
+    }
 }
 
 function goToImage(index) {
     currentImageIndex = index;
     const mainImage = document.getElementById('mainImage');
+    
+    if (!mainImage) return;
+    
     mainImage.src = galleryImages[index].src;
     mainImage.alt = galleryImages[index].alt;
 
+    // Update dots
     document.querySelectorAll('.gallery-dot').forEach((dot, i) => {
         dot.classList.toggle('active', i === index);
     });
 
+    // Update thumbnails
     document.querySelectorAll('.thumbnail').forEach((thumb, i) => {
         thumb.classList.toggle('active', i === index);
     });
 }
 
-//  Subscription Cards
+// Subscription Cards
 function initSubscriptionCards() {
     const radioButtons = document.querySelectorAll('input[name="purchaseType"]');
     
@@ -242,27 +262,27 @@ function initSubscriptionCards() {
         button.addEventListener('change', () => {
             const type = button.value;
             updateSubscriptionContent(type);
+            updateAddToCartLink(); // Update cart link when purchase type changes
         });
     });
 
-    const checkedType = document.querySelector('input[name="purchaseType"]:checked').value;
-    updateSubscriptionContent(checkedType);
+    const checkedType = document.querySelector('input[name="purchaseType"]:checked');
+    if (checkedType) {
+        updateSubscriptionContent(checkedType.value);
+    }
 }
 
 function updateSubscriptionContent(type) {
     const cards = document.querySelectorAll('.subscription-card');
     cards.forEach(card => {
         const cardType = card.dataset.type;
-        const radio = card.querySelector('input[type="radio"]');
         
         if (cardType === type) {
             card.classList.add('active');
-            // Show content
             const content = card.querySelector('.subscription-content');
             if (content) content.style.display = 'flex';
         } else {
             card.classList.remove('active');
-            // Hide content
             const content = card.querySelector('.subscription-content');
             if (content) content.style.display = 'none';
         }
@@ -274,7 +294,6 @@ function updateSubscriptionContent(type) {
 function updateIncludedContent(type) {
     const data = purchaseTypes[type];
     
-    // Update single subscription included
     if (type === 'single') {
         const singleIncluded = document.getElementById('singleIncluded');
         const singleBenefits = document.getElementById('singleBenefits');
@@ -287,7 +306,6 @@ function updateIncludedContent(type) {
                 boxDiv.innerHTML = `
                     <span>${box.label}</span>
                     <img src="${box.image}" alt="${box.label}">
-                    
                 `;
                 singleIncluded.appendChild(boxDiv);
             });
@@ -302,7 +320,6 @@ function updateIncludedContent(type) {
             });
         }
     } 
-    // Update double subscription included
     else if (type === 'double') {
         const doubleIncluded = document.getElementById('doubleIncluded');
         const doubleBenefits = document.getElementById('doubleBenefits');
@@ -331,15 +348,13 @@ function updateIncludedContent(type) {
     }
 }
 
-//  Fragrance Selections
+// Fragrance Selections
 function initFragranceSelections() {
-    // Single subscription fragrance
     const singleFragrances = document.getElementById('singleFragrances');
     if (singleFragrances) {
         populateFragranceOptions(singleFragrances, fragrances.single, 'fragrance-single');
     }
 
-    // Double subscription fragrances
     const doubleFragrances1 = document.getElementById('doubleFragrances1');
     if (doubleFragrances1) {
         populateFragranceOptions(doubleFragrances1, fragrances.double1, 'fragrance-double1');
@@ -356,7 +371,6 @@ function populateFragranceOptions(container, options, groupName) {
         const label = document.createElement('label');
         label.className = 'fragrance-option';
 
-        // Create div for radio + text
         const radioTextDiv = document.createElement('div');
         radioTextDiv.style.display = 'flex';
         radioTextDiv.style.flexDirection = 'row';
@@ -369,7 +383,7 @@ function populateFragranceOptions(container, options, groupName) {
         input.name = groupName;
         input.value = option.value;
         if (index === 0) input.checked = true;
-        input.addEventListener('change', updateAddToCartLink);
+        input.addEventListener('change', updateAddToCartLink); // Listen for changes
 
         const checkmark = document.createElement('span');
         checkmark.className = 'radio-checkmark';
@@ -382,7 +396,6 @@ function populateFragranceOptions(container, options, groupName) {
         radioTextDiv.appendChild(checkmark);
         radioTextDiv.appendChild(nameSpan);
 
-        // Create div for image
         const img = document.createElement('img');
         img.src = option.image;
         img.alt = option.name;
@@ -402,7 +415,7 @@ function populateFragranceOptions(container, options, groupName) {
     });
 }
 
-//  Radio 
+// Radio Listeners
 function initRadioListeners() {
     const radioButtons = document.querySelectorAll('input[name="purchaseType"]');
     radioButtons.forEach(button => {
@@ -410,10 +423,12 @@ function initRadioListeners() {
     });
 }
 
-// Update Add to Cart Link
+// FIXED: Dynamic Add to Cart Link with 9 variations
 function updateAddToCartLink() {
-    const purchaseType = document.querySelector('input[name="purchaseType"]:checked').value;
+    const purchaseTypeEl = document.querySelector('input[name="purchaseType"]:checked');
+    if (!purchaseTypeEl) return;
     
+    const purchaseType = purchaseTypeEl.value;
     let fragrance1 = '';
     let fragrance2 = '';
 
@@ -421,18 +436,26 @@ function updateAddToCartLink() {
         const singleFragrance = document.querySelector('input[name="fragrance-single"]:checked');
         fragrance1 = singleFragrance ? singleFragrance.value : 'original';
         fragrance2 = 'none';
-    } else {
+    } else if (purchaseType === 'double') {
         const doubleFragrance1 = document.querySelector('input[name="fragrance-double1"]:checked');
         const doubleFragrance2 = document.querySelector('input[name="fragrance-double2"]:checked');
         fragrance1 = doubleFragrance1 ? doubleFragrance1.value : 'original';
         fragrance2 = doubleFragrance2 ? doubleFragrance2.value : 'original';
     }
 
-    // Generate unique link based on selections
-    const cartLink = `#cart/${purchaseType}/${fragrance1}/${fragrance2}`;
+    // Generate unique cart link (9 possible variations)
+    // Single: original, lily, rose (3 variations)
+    // Double: 9 combinations of fragrances
+    const cartLink = `https://example.com/cart?type=${purchaseType}&frag1=${fragrance1}&frag2=${fragrance2}`;
+    
     const addToCartBtn = document.getElementById('addToCartBtn');
     if (addToCartBtn) {
         addToCartBtn.href = cartLink;
+        addToCartBtn.setAttribute('href', cartLink);
+        console.log('Cart link updated:', cartLink); // For debugging
+        console.log('Button element:', addToCartBtn); // Check if button exists
+    } else {
+        console.error('Add to cart button not found!');
     }
 }
 
@@ -454,5 +477,4 @@ document.querySelectorAll('.fact-count').forEach(counter => {
         if (count === target) clearInterval(interval);
     }, 20); 
 });
-
 // End Fact Section Script
